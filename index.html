@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MediScan Pro — ADR Reporting</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <!-- jsQR for QR decode -->
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <div class="logo">💊</div>
+        <div>
+          <h1>MediScan Pro</h1>
+          <p class="muted">Smart ADR reporting • Drug verification • Provided by HCK-Pharma</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="installBtn" class="btn ghost" title="Install app" style="display:none">Install</button>
+        <button id="themeToggle" class="btn ghost" title="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- LEFT: Scanner & Form -->
+      <section class="panel left">
+        <div class="scanner card">
+          <div class="scanner-head">
+            <h2>Scan QR / Camera</h2>
+            <p class="muted small">Use rear camera for best results. You can also upload an image or search manually.</p>
+          </div>
+
+          <div class="video-wrap">
+            <video id="camera" autoplay playsinline muted></video>
+            <canvas id="scanCanvas" hidden></canvas>
+          </div>
+
+          <div class="controls">
+            <button id="btnStart" class="btn primary">📷 Start (Rear)</button>
+            <button id="btnStop" class="btn ghost" style="display:none">⏹ Stop</button>
+            <button id="btnTorch" class="btn ghost" style="display:none">🔦 Torch</button>
+            <button id="btnGallery" class="btn ghost">🖼 Upload QR</button>
+          </div>
+
+          <div class="manual">
+            <input id="searchInput" placeholder="Search drug name (e.g., Augmentin)" />
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <button id="btnSearch" class="btn primary small">🔎 Search</button>
+              <button id="btnClearSearch" class="btn ghost small">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="drugCard" class="card hidden"></div>
+
+        <div id="reportPanel" class="card hidden">
+          <h3>📝 Submit New ADR</h3>
+          <form id="reportForm" class="form-grid" autocomplete="off">
+            <input id="p_name" placeholder="Patient name" required />
+            <input id="p_age" type="number" placeholder="Age" required />
+            <select id="p_gender" required><option value="">Gender</option><option>Male</option><option>Female</option><option>Other</option></select>
+            <input id="p_phone" placeholder="Phone (optional)" />
+            <input id="p_condition" placeholder="Condition (why using drug)" required />
+            <select id="p_severity" required><option value="">Severity</option><option>Mild</option><option>Moderate</option><option>Severe</option></select>
+            <input id="p_amount_mg" type="number" placeholder="Amount administered (mg)" min="0" />
+            <input id="p_batch" placeholder="Batch number (auto if scanned)" />
+            <textarea id="p_desc" placeholder="Describe ADR..." required></textarea>
+
+            <div class="actions">
+              <button type="button" id="btnReset" class="btn ghost">Reset</button>
+              <button type="submit" class="btn primary">Submit Report</button>
+            </div>
+          </form>
+
+          <div id="doseWarning" class="dose-warning hidden"></div>
+        </div>
+      </section>
+
+      <!-- RIGHT: History and Extras -->
+      <aside class="panel right">
+        <div class="card">
+          <h3>Search & Data</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button id="btnExport" class="btn ghost small">Export Reports</button>
+            <button id="btnClearAll" class="btn warn small">Clear Reports</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📜 ADR History</h3>
+          <div id="historyList" style="max-height:380px;overflow:auto"></div>
+        </div>
+
+        <div class="card">
+          <h3>ℹ️ Notes</h3>
+          <p class="muted small">Local DRAP dataset is authoritative for this demo. openFDA is used as fallback. Use for educational/demo purposes only.</p>
+        </div>
+      </aside>
+    </main>
+
+    <div id="toast" class="toast" hidden></div>
+
+    <footer class="footer">
+      <small>© 2025 MediScan Pro — <strong>Provided by HCK-Pharma</strong></small>
+    </footer>
+  </div>
+</body>
+</html>
