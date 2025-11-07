@@ -1,0 +1,10 @@
+{
+  "name": "MediScan Pro",
+  "short_name": "MediScan",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0b8b8b",
+  "description": "MediScan Pro — ADR reporting & drug verification (DRAP local + OpenFDA fallback).",
+  "icons": []
+}
