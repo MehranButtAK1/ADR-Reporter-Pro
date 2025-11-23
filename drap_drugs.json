@@ -1,5 +1,5 @@
 [
-  { "name": "HYDRILIN", "manufacturer": " Searle ", "batch": "tyggi", "expiry": "07/2027", "uses": ["cough", "dry cough"]}, 
+  { "name": "240HYDRYLLINSYRUP120mlRs.175.00", "manufacturer": " Searle ", "batch": "tyggi", "expiry": "07/2027", "uses": ["cough", "dry cough"]}, 
   { "name": "Augmentin", "manufacturer": "GlaxoSmithKline (Pakistan)", "batch": "L89X", "expiry": "12/2026", "uses": ["Bacterial infections", "Respiratory tract infections", "Sinusitis"], "adrs": ["Diarrhea", "Rash", "Nausea", "Erythema multiforme"], "synonyms": ["Augmentin 625", "Augmentin 500"], "dosage": "500/125 mg every 8 hours or 875/125 mg twice daily", "maxDoseMg": 3000 },
   { "name": "Paracetamol", "manufacturer": "Getz Pharma", "batch": "PAR-500-2025", "expiry": "11/2026", "uses": ["Fever", "Mild pain", "Headache"], "adrs": ["Nausea", "Liver toxicity in overdose", "Allergic skin reactions"], "synonyms": ["Panadol", "Tylenol"], "dosage": "500-1000 mg every 4-6 hours; maximum 4000 mg/day", "maxDoseMg": 4000 },
   { "name": "Ibuprofen", "manufacturer": "Various", "batch": "IBU-200-01", "expiry": "07/2026", "uses": ["Pain", "Inflammation", "Fever"], "adrs": ["Stomach upset", "Dyspepsia", "Headache"], "synonyms": ["Brufen", "Nurofen"], "dosage": "200-400 mg every 4-6 hours; typical OTC max 1200 mg/day", "maxDoseMg": 2400 },
